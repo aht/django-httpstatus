@@ -45,24 +45,24 @@ statuscode = {
         'http version not supported': 505
     }
 
-def HttpStatus(code):
+def HttpStatus(status):
     """
     Return a function on a HttpResponse to set its status code to a given
-    `code` number or reason phrase as specified by RFC 2616.
+    `status` number or reason phrase as specified by RFC 2616.
 
     Example:
 
         >>> def view(request):
-                return HttpStatus('created')(
+                return HttpStatus('Created')(
                            render_to_response(...)
                        )
     """
     def status_setter(response):
         if isinstance(code, int):
-            response.status_code = n
+            response.status_code = status
         elif isinstane(code, basestring):
             try:
-                response.status_code = statuscode[code.lower()]
+                response.status_code = statuscode[status.lower()]
             except KeyError:
                 raise ValueError("unknown reason phrase")
         else:
