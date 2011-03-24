@@ -58,9 +58,9 @@ def HttpStatus(status):
                        )
     """
     def status_setter(response):
-        if isinstance(code, int):
+        if isinstance(status, int):
             response.status_code = status
-        elif isinstane(code, basestring):
+        elif isinstane(status, basestring):
             try:
                 response.status_code = statuscode[status.lower()]
             except KeyError:
