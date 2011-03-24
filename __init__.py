@@ -1,5 +1,7 @@
 #!/usr/bin/env python2
 
+__all__ = ['statuscode', 'HttpStatus']
+
 statuscode = {
         'continue': 100,
         'switching protocols': 101,
